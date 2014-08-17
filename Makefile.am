@@ -25,12 +25,12 @@ SUBDIRS = ksplash\
           wallpapers
 
 rpm:	dist
-	cp paravel_theme-$(VERSION).tar.gz $(RPM_ROOT)/SOURCES/
-	$(RPMBUILD) -ba --target noarch-$(VENDOR)-linux paravel_theme.spec
-	mv $(RPM_ROOT)/RPMS/noarch/paravel_theme-$(VERSION)* $(top_srcdir)/
-	mv $(RPM_ROOT)/SRPMS/paravel_theme-$(VERSION)* $(top_srcdir)/
-	rm $(RPM_ROOT)/SOURCES/paravel_theme-$(VERSION).tar.gz
-	rm -rf $(RPM_ROOT)/BUILD/paravel_theme-$(VERSION)
+	mkdir -p $(HOME)/rpmbuild/SOURCES
+	cp paravel_theme3-$(VERSION).tar.gz $(HOME)/rpmbuild/SOURCES/
+	$(RPMBUILD) -ba --target noarch-$(VENDOR)-linux paravel_theme3.spec
+	mv $(HOME)/rpmbuild/RPMS/noarch/paravel_theme3-*.rpm $(top_srcdir)/
+	mv $(HOME)/rpmbuild/SRPMS/paravel_theme3-*.src.rpm $(top_srcdir)/
+	rm $(HOME)/rpmbuild/SOURCES/paravel_theme3-$(VERSION).tar.gz
 
 slack:	
 	./make_slack
@@ -41,7 +41,7 @@ EXTRA_DIST = autogen.sh\
              make_slack.in\
              paravel_support.odt\
              paravel_support.pdf\
-             paravel_theme.spec.in\
+             paravel_theme3.spec.in\
              slack-desc.in\
              slack_doinst.sh
 

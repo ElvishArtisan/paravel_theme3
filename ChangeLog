@@ -69,3 +69,7 @@
 2014-05-15 Fred Gleason <fredg@paravelsystems.com>
 	* Updated qt/qtrc to specify the polymer theme.
 	* Incremented the package version to 2.5.
+2014-08-16 Fred Gleason <fredg@paravelsystems.com>
+	* Renamed 'configure.in' to 'configure.ac'.
+	* Modified 'configure.ac' and 'Makefile.am' to use in-home
+	RPM build tree.

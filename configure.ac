@@ -19,8 +19,8 @@ dnl   License along with this program; if not, write to the Free Software
 dnl   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 dnl
 
-AC_INIT(paravel_theme,2.5,Fred Gleason <fredg@paravelsystems.com>)
-AM_INIT_AUTOMAKE(paravel_theme,2.5)
+AC_INIT(paravel_theme3,2.5)
+AM_INIT_AUTOMAKE
 AC_SUBST(RPM_RELEASE,1)
 
 #
@@ -32,22 +32,16 @@ if test -z $RPMBUILD_FOUND ; then
 else
   AC_SUBST(RPMBUILD,rpmbuild)
 fi
-if test -d /usr/src/redhat ; then
-  AC_SUBST(RPM_ROOT,/usr/src/redhat)
-  AC_SUBST(VENDOR,redhat)
-else
-  AC_SUBST(RPM_ROOT,/usr/src/packages)
-  AC_SUBST(VENDOR,suse)
-fi 
+AC_SUBST(VENDOR,redhat)
+AC_SUBST(RPM_DATESTAMP,`date +%a\ %b\ %d\ %Y`)
 
-
-AC_OUTPUT(paravel_theme.spec \
-        ./Makefile \
-        ./ksplash/Makefile \
-        ./qt/Makefile \
-        ./wallpapers/Makefile \
-	./make_slack \
-	./slack-desc \
+AC_OUTPUT(paravel_theme3.spec \
+        Makefile \
+        ksplash/Makefile \
+        qt/Makefile \
+        wallpapers/Makefile \
+	make_slack \
+	slack-desc \
 )
 
 chmod 755 make_slack

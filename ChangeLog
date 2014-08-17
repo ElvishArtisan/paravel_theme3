@@ -73,3 +73,5 @@
 	* Renamed 'configure.in' to 'configure.ac'.
 	* Modified 'configure.ac' and 'Makefile.am' to use in-home
 	RPM build tree.
+2014-08-16 Fred Gleason <fredg@paravelsystems.com>
+	* Incremented the package version to 3.0.0.

@@ -1,0 +1,134 @@
+## paravel_theme.spec.in
+##
+##    The Paravel Theme Package
+##    Copyright (C) 2006  Fred Gleason <fredg@salemradiolabs.com>
+##
+##    This program is free software; you can redistribute it and/or modify
+##    it under the terms of version 2 of the GNU General Public License as
+##    published by the Free Software Foundation;
+##
+##    This program is distributed in the hope that it will be useful,
+##    but WITHOUT ANY WARRANTY; without even the implied warranty of
+##    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+##    GNU General Public License for more details.
+##
+##    You should have received a copy of the GNU General Public License
+##    along with this program; if not, write to the Free Software
+##    Foundation, Inc., 59 Temple Place, Suite 330, 
+##    Boston, MA  02111-1307  USA
+##
+
+Summary: Simple Paravel Systems Theme for KDE
+Name: paravel_theme
+Version: @VERSION@
+Release: @RPM_RELEASE@%{?dist}
+License: GPL
+Packager: Fred Gleason <fredg@paravelsystems.com>
+Group: Productivity/Multimedia/Other
+Source: paravel_theme-@VERSION@.tar.gz
+BuildRoot: /var/tmp/paravel_theme-@VERSION@
+BuildArch: noarch
+Requires: polymer
+
+
+%description
+Paravel Theme is a simple Paravel Systems theme for KDE.  It includes
+wallpaper and a custom KSplash theme.
+
+%prep
+%setup -q
+
+%install
+rm -rf $RPM_BUILD_ROOT
+mkdir -p $RPM_BUILD_ROOT/usr/share/rivendell
+cp paravel_support.pdf $RPM_BUILD_ROOT/usr/share/rivendell/
+mkdir -p $RPM_BUILD_ROOT/usr/share/backgrounds
+cp wallpapers/Paravel_Axia_RD_black.png $RPM_BUILD_ROOT/usr/share/backgrounds/
+cp wallpapers/Paravel_Axia_RD_red.png $RPM_BUILD_ROOT/usr/share/backgrounds/
+cp wallpapers/Paravel_Axia_RD_white.png $RPM_BUILD_ROOT/usr/share/backgrounds/
+cp wallpapers/Paravel_Black1024a.png $RPM_BUILD_ROOT/usr/share/backgrounds/
+cp wallpapers/Paravel_Black1024b.png $RPM_BUILD_ROOT/usr/share/backgrounds/
+cp wallpapers/Paravel_Black1024rd.png $RPM_BUILD_ROOT/usr/share/backgrounds/
+cp wallpapers/Paravel_Gray1024.png $RPM_BUILD_ROOT/usr/share/backgrounds/
+mkdir -p $RPM_BUILD_ROOT/usr/share/pixmaps/rivendell
+cp wallpapers/Paravel_Blue.png $RPM_BUILD_ROOT/usr/share/pixmaps/rivendell/
+cp wallpapers/Paravel_Blue_PS2.png $RPM_BUILD_ROOT/usr/share/pixmaps/rivendell/
+cp wallpapers/Paravel_rdairplay.png $RPM_BUILD_ROOT/usr/share/pixmaps/rivendell/
+cp wallpapers/rdairplay_skin.png $RPM_BUILD_ROOT/usr/share/pixmaps/rivendell/
+cp wallpapers/rdpanel_skin.png $RPM_BUILD_ROOT/usr/share/pixmaps/rivendell/
+mkdir -p $RPM_BUILD_ROOT/usr/share/apps/ksplash/Themes/Paravel
+cp ksplash/Theme.rc $RPM_BUILD_ROOT/usr/share/apps/ksplash/Themes/Paravel/
+cp ksplash/*.png $RPM_BUILD_ROOT/usr/share/apps/ksplash/Themes/Paravel/
+mkdir -p $RPM_BUILD_ROOT/etc/skel/Desktop
+ln -s /usr/share/rivendell/paravel_support.pdf $RPM_BUILD_ROOT/etc/skel/Desktop/First\ Steps.pdf
+mkdir $RPM_BUILD_ROOT/etc/skel/.gconf
+tar -C $RPM_BUILD_ROOT/etc/skel/.gconf -xf gconf-config.tar 
+mkdir $RPM_BUILD_ROOT/etc/skel/.qt
+cp qt/qtrc $RPM_BUILD_ROOT/etc/skel/.qt/
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%files
+%defattr(-,root,root)
+/usr/share/rivendell/paravel_support.pdf
+/usr/share/backgrounds/Paravel_Axia_RD_black.png
+/usr/share/backgrounds/Paravel_Axia_RD_red.png
+/usr/share/backgrounds/Paravel_Axia_RD_white.png
+/usr/share/backgrounds/Paravel_Black1024a.png
+/usr/share/backgrounds/Paravel_Black1024b.png
+/usr/share/backgrounds/Paravel_Black1024rd.png
+/usr/share/backgrounds/Paravel_Gray1024.png
+/usr/share/pixmaps/rivendell/Paravel_Blue.png
+/usr/share/pixmaps/rivendell/Paravel_Blue_PS2.png
+/usr/share/pixmaps/rivendell/Paravel_rdairplay.png
+/usr/share/pixmaps/rivendell/rdairplay_skin.png
+/usr/share/pixmaps/rivendell/rdpanel_skin.png
+/usr/share/apps/ksplash/Themes/Paravel/Theme.rc
+/usr/share/apps/ksplash/Themes/Paravel/Preview.png
+/usr/share/apps/ksplash/Themes/Paravel/splash_active_bar.png
+/usr/share/apps/ksplash/Themes/Paravel/splash_bottom.png
+/usr/share/apps/ksplash/Themes/Paravel/splash_inactive_bar.png
+/usr/share/apps/ksplash/Themes/Paravel/splash_top.png
+"/etc/skel/Desktop/First Steps.pdf"
+/etc/skel/.gconf/apps/nautilus/desktop/%gconf.xml
+/etc/skel/.gconf/apps/nautilus/%gconf.xml
+/etc/skel/.gconf/apps/nautilus/desktop-metadata/trash/%gconf.xml
+/etc/skel/.gconf/apps/nautilus/desktop-metadata/%gconf.xml
+/etc/skel/.gconf/apps/nautilus/desktop-metadata/home/%gconf.xml
+/etc/skel/.gconf/apps/nautilus/desktop-metadata/directory/%gconf.xml
+/etc/skel/.gconf/apps/nautilus/desktop-metadata/computer/%gconf.xml
+/etc/skel/.gconf/apps/gnome-power-manager/%gconf.xml
+/etc/skel/.gconf/apps/gnome-power-manager/timeout/%gconf.xml
+/etc/skel/.gconf/apps/gnome-power-manager/buttons/%gconf.xml
+/etc/skel/.gconf/apps/gnome-power-manager/disks/%gconf.xml
+/etc/skel/.gconf/apps/gnome-power-manager/backlight/%gconf.xml
+/etc/skel/.gconf/apps/gnome-screensaver/%gconf.xml
+/etc/skel/.gconf/apps/%gconf.xml
+/etc/skel/.gconf/desktop/gnome/background/%gconf.xml
+/etc/skel/.gconf/desktop/gnome/sound/%gconf.xml
+/etc/skel/.gconf/desktop/gnome/%gconf.xml
+/etc/skel/.gconf/desktop/%gconf.xml
+/etc/skel/.qt/qtrc
+%doc README
+%doc ChangeLog
+
+
+%changelog
+* Thu May 21 2014 Fred Gleason <fredg@paravelsystems.com> - 2.5-1
+-- Added a 'polymer' dependency.
+* Tue Jan 21 2014 Fred Gleason <fredg@paravelsystems.com> - 2.4-1
+-- Added 'qtrc'.
+* Mon Apr  1 2013 Fred Gleason <fredg@paravelsystems.com> - 2.2-1
+-- Added GConf defaults.
+* Wed Mar 27 2013 Fred Gleason <fredg@paravelsystems.com>
+-- Moved background images from '/usr/share/wallpapers' to '/usr/share/backgrounds'.
+-- Added triggers for the redhat-logos package.
+* Fri Apr 01 2011 Fred Gleason <fredg@paravelsystems.com>
+-- Added 'paravel_support.pdf'.
+* Fri Dec 31 2010 Fred Gleason <fredg@paravelsystems.com>
+-- Updated installation paths for ksplash theme components.
+* Sat Aug 23 2008 Fred Gleason <fredg@paravelsystems.com>
+-- Modified for paravel_theme.
+* Wed Apr 05 2006 Fred Gleason <fredg@salemradiolabs.com>
+-- Initial spec file creation.

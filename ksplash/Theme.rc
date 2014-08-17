@@ -1,0 +1,19 @@
+#
+# Paravel Systems Theme
+# Copyright (c) 2006,2008 Fred Gleason <fredg@paravelsystems.com>
+#
+
+[KSplash Theme: Paravel]
+Name = Paravel
+Description = KSplash theme for Paravel Systems.
+Version = 1.0
+Author = Fred Gleason
+Homepage = http://www.paravelsystems.com/
+
+# Theme behavior settings.
+Engine = Default
+
+Statusbar Visible = true
+Progress Visible = true
+Icons Visible = false
+Splash Screen = splash_top.png

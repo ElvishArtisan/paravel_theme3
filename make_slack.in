@@ -1,0 +1,72 @@
+#!/bin/bash
+
+# make_slack
+#
+# Make a Slackware package.
+#
+# (C) Copyright 2008 Fred Gleason <fredg@paravelsystems.com>
+#
+#      $Id: make_slack.in,v 1.1 2008/08/24 02:05:38 cvs Exp $
+#
+#    This program is free software; you can redistribute it and/or modify
+#    it under the terms of version 2 of the GNU General Public License as
+#    published by the Free Software Foundation;
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program; if not, write to the Free Software
+#    Foundation, Inc., 59 Temple Place, Suite 330, 
+#    Boston, MA  02111-1307  USA
+#
+
+#
+# USAGE
+#    make_slack
+#
+
+#
+# Clean the build tree
+#
+BUILD_DIR=/var/tmp/paravel_theme-@VERSION@
+rm -rf $BUILD_DIR
+
+#
+# Build the package tree
+#
+mkdir -p $BUILD_DIR/usr/share/wallpapers
+cp wallpapers/Paravel_Axia_RD_black.png $BUILD_DIR/usr/share/wallpapers/
+cp wallpapers/Paravel_Axia_RD_red.png $BUILD_DIR/usr/share/wallpapers/
+cp wallpapers/Paravel_Axia_RD_white.png $BUILD_DIR/usr/share/wallpapers/
+cp wallpapers/Paravel_Black1024a.png $BUILD_DIR/usr/share/wallpapers/
+cp wallpapers/Paravel_Black1024b.png $BUILD_DIR/usr/share/wallpapers/
+cp wallpapers/Paravel_Black1024rd.png $BUILD_DIR/usr/share/wallpapers/
+mkdir -p $BUILD_DIR/usr/share/pixmaps/rivendell
+cp wallpapers/Paravel_Blue_PS2.png $BUILD_DIR/usr/share/pixmaps/rivendell/
+cp wallpapers/Paravel_rdairplay.png $BUILD_DIR/usr/share/pixmaps/rivendell/
+mkdir -p $BUILD_DIR/usr/share/apps/ksplash/Themes/Paravel
+cp ksplash/Theme.rc $BUILD_DIR/usr/share/apps/ksplash/Themes/Paravel/
+cp ksplash/*.png $BUILD_DIR/usr/share/apps/ksplash/Themes/Paravel/
+mkdir -p $BUILD_DIR/install
+cp slack_doinst.sh $BUILD_DIR/install/doinst.sh
+cp slack-desc $BUILD_DIR/install/slack-desc
+
+#
+# Generate the package
+#
+SOURCE_DIR=`pwd`
+cd $BUILD_DIR
+makepkg --prepend --linkadd y --chown n paravel_theme.tgz
+cd $SOURCE_DIR
+cp $BUILD_DIR/paravel_theme.tgz ./paravel_theme-@VERSION@-noarch-@RPM_RELEASE@.tgz
+
+#
+# Clean up and exit
+#
+rm -r $BUILD_DIR
+
+
+# End of make_slack

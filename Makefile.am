@@ -37,6 +37,7 @@ slack:
 
 EXTRA_DIST = autogen.sh\
              broadcast_appliance_readme.odt\
+             dconf-user\
              gconf-config.tar\
              make_slack.in\
              paravel_support.odt\

@@ -69,6 +69,8 @@ mkdir $RPM_BUILD_ROOT/etc/skel/.qt
 cp qt/qtrc $RPM_BUILD_ROOT/etc/skel/.qt/
 mkdir -p $RPM_BUILD_ROOT/etc/skel/.config/autostart
 cp rddesktop_init.desktop $RPM_BUILD_ROOT/etc/skel/.config/autostart
+mkdir -p $RPM_BUILD_ROOT/etc/skel/.config/dconf
+cp dconf-user $RPM_BUILD_ROOT/etc/skel/.config/dconf/user
 mkdir -p $RPM_BUILD_ROOT/etc/skel/Pictures
 cp wallpapers/Paravel_Gray1024.png $RPM_BUILD_ROOT/etc/skel/Pictures/
 cp wallpapers/Paravel_Black1024a.png $RPM_BUILD_ROOT/etc/skel/Pictures/
@@ -101,26 +103,9 @@ rm -rf $RPM_BUILD_ROOT
 /usr/share/apps/ksplash/Themes/Paravel/splash_inactive_bar.png
 /usr/share/apps/ksplash/Themes/Paravel/splash_top.png
 "/etc/skel/Desktop/First Steps.pdf"
-#/etc/skel/.gconf/apps/nautilus/desktop/%gconf.xml
-#/etc/skel/.gconf/apps/nautilus/%gconf.xml
-#/etc/skel/.gconf/apps/nautilus/desktop-metadata/trash/%gconf.xml
-#/etc/skel/.gconf/apps/nautilus/desktop-metadata/%gconf.xml
-#/etc/skel/.gconf/apps/nautilus/desktop-metadata/home/%gconf.xml
-#/etc/skel/.gconf/apps/nautilus/desktop-metadata/directory/%gconf.xml
-#/etc/skel/.gconf/apps/nautilus/desktop-metadata/computer/%gconf.xml
-#/etc/skel/.gconf/apps/gnome-power-manager/%gconf.xml
-#/etc/skel/.gconf/apps/gnome-power-manager/timeout/%gconf.xml
-#/etc/skel/.gconf/apps/gnome-power-manager/buttons/%gconf.xml
-#/etc/skel/.gconf/apps/gnome-power-manager/disks/%gconf.xml
-#/etc/skel/.gconf/apps/gnome-power-manager/backlight/%gconf.xml
-#/etc/skel/.gconf/apps/gnome-screensaver/%gconf.xml
-#/etc/skel/.gconf/apps/%gconf.xml
-#/etc/skel/.gconf/desktop/gnome/background/%gconf.xml
-#/etc/skel/.gconf/desktop/gnome/sound/%gconf.xml
-#/etc/skel/.gconf/desktop/gnome/%gconf.xml
-#/etc/skel/.gconf/desktop/%gconf.xml
 /etc/skel/.qt/qtrc
 /etc/skel/.config/autostart/rddesktop_init.desktop
+/etc/skel/.config/dconf/user
 /etc/skel/Pictures/Paravel*
 %doc README
 %doc ChangeLog

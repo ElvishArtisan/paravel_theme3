@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Terminal=true
+Categories=Qt;KDE;Rivendell;
+Name=RDDesktop Initilization
+GenericName=Initialize Desktop
+Exec=rddesktop_init.sh
+Type=Application

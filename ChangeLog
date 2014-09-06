@@ -75,3 +75,6 @@
 	RPM build tree.
 2014-08-16 Fred Gleason <fredg@paravelsystems.com>
 	* Incremented the package version to 3.0.0.
+2014-09-16 Fred Gleason <fredg@paravelsystems.com>
+	* Added 'rddesktop_init.sh'.
+	* Added 'rddesktop_init.desktop'.

@@ -42,6 +42,8 @@ EXTRA_DIST = autogen.sh\
              paravel_support.odt\
              paravel_support.pdf\
              paravel_theme3.spec.in\
+             rddesktop_init.desktop\
+             rddesktop_init.sh\
              slack-desc.in\
              slack_doinst.sh
 

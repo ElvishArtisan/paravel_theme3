@@ -19,7 +19,7 @@ dnl   License along with this program; if not, write to the Free Software
 dnl   Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 dnl
 
-AC_INIT(paravel_theme3,3.0.0)
+AC_INIT(paravel_theme3,3.1.0)
 AM_INIT_AUTOMAKE
 AC_SUBST(RPM_RELEASE,1)
 
